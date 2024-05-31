@@ -1,28 +1,26 @@
 package com.pix.entity;
 
-import jakarta.persistence.Column;
+import com.pix.embedded.CadastroEmbed;
+
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
 
 @Data
-@Entity 
+@Entity
 public class Pessoa {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String cpf;
 	
-	@Column
 	private String nome;
 	
-	@Column
 	private int idade;
 	
-	@Column
-	private Cadastro cadastro;
+	@Embedded
+	private CadastroEmbed cadastro;
+	
 	
 
 

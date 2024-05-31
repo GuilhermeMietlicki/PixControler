@@ -1,6 +1,9 @@
 package com.pix.entity;
 
+import com.pix.embedded.EnderecoEmbed;
+
 import jakarta.persistence.Column;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,15 +15,13 @@ import lombok.Data;
 public class Cadastro {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="ID_CADASTRO")
 	String idCadastro;
 	
-	@Column
 	String telefone;
 	
-	@Column
 	String email;
 	
-	@Column
-	Endereco endereco;
+	@Embedded
+	EnderecoEmbed endereco;
 }
